@@ -1,0 +1,62 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 bg-info p-4">
+                <form [formGroup]="findDoctor" (ngSubmit)="onSubmit()">
+                    <h5>Find Doctor</h5>
+                    <div class="form-group">
+                        <label>Specializare</label>
+                        <select class="form-control" id="speciality" name="speciality" formControlName="speciality">
+                            <option>-</option>
+                            <option>chirurgie</option>
+                            <option>orl</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Hospital</label>
+                        <select class="form-control" id="hospital"  name="hospital" formControlName="hospital">
+                            <option>-</option>
+                            <option>Spitalul 1</option>
+                            <option>Spitalul 2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <select class="form-control" id="city"  name="city" formControlName="city">
+                            <option>-</option>
+                            <option>Bucharest</option>
+                            <option>Brasov</option>
+                            <option>Botosani</option>
+                            <option>Suceava</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit" [disabled]="!findDoctor.valid" class="btn btn-dark">Filter</button>
+                    </div>
+                </form>
+        </div>
+        <div class="col-md-6 bg-info" style="margin-left: 20px">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Hospital</th>
+                        <th scope="col">Speciality</th>
+                        <th scope="col">Info</th>
+                        <th scope="col">Add Comment</th>
+                        <th scope="col">Reservation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of doctors">
+                        <td>{{ doctor.name }}</td>
+                        <td>{{ doctor.hospital }}</td>
+                        <td>{{ doctor.speciality }}</td>
+                        <td><a routerLink="/info/{{ doctor._id }}">Info</a></td>
+                        <td><a routerLink="/comment">Write Comment</a></td>
+                        <td><a routerLink="/reservation/{{ doctor._id }}">Schedule reservation</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

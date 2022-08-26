@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="container">
+   <div class="doctor" *ngIf="isDoctor && !accountService.isCompleted">
+      <app-doctor></app-doctor>
+   </div>
+   <div class="completed" *ngIf="isDoctor && accountService.isCompleted">
+      <div class="col-md-6 mx-auto">
+         <ul class="list-group pt-4">
+           <li class="list-group-item  list-group-item-action list-group-item-info bg-info" routerLink="/consults">Consults</li>
+           <li class="list-group-item list-group-item-action" routerLink="/pacient">Info</li>
+         </ul>
+       </div>
+      </div>
+   <div class="pactient" *ngIf="!isDoctor && !accountService.isCompleted">
+      <app-pacient></app-pacient>
+   </div>
+   <div class="completed" *ngIf="!isDoctor && accountService.isCompleted">
+      <div class="col-md-6 mx-auto">
+      <ul class="list-group pt-4">
+         <li class="list-group-item  list-group-item-action list-group-item-info bg-info" routerLink="/consults">Consults</li>
+         <li class="list-group-item list-group-item-action" routerLink="/pacient">Info</li>
+         <li class="list-group-item list-group-item-action" routerLink="/find">Find doctor</li>
+         <li class="list-group-item list-group-item-action" (click)="accountService.logout()">Logout</li>
+      </ul>
+      </div>
+   </div>
+</div>
