@@ -14,7 +14,9 @@ import { UserService } from '../services/user.service';
 export class InfoComponent implements OnInit {
 
   pacient: any = {};
-
+  result: any[] = []
+  doctor: any = {}
+  
   resultsForm = this.fb.group({
     doctorId: new FormControl(''),
     pacientId: new FormControl(''),
@@ -27,6 +29,14 @@ export class InfoComponent implements OnInit {
   ngOnInit(): void {
     this.findService.pacientInfo(this.route.snapshot.paramMap.get('id')).
     subscribe( (response: any) => this.pacient = response.data)
+    this.displayResults();
+  }
+  displayResults() {
+    this.userService.show(this.route.snapshot.paramMap.get('id')).subscribe(
+      (response: any)  => {
+        this.doctor = response.data[0].doctor,
+        this.result = response.data[0].result
+      })
   }
 
   onSubmit() {
@@ -35,6 +45,7 @@ export class InfoComponent implements OnInit {
 
     this.userService.results(this.resultsForm.value).subscribe();
     this.resultsForm.reset();
+    this.displayResults();
   }
 
 }

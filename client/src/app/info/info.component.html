@@ -1,13 +1,21 @@
     <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">            
-            <ul class="list-group pt-4">
-                <li class="list-group-item list-group-item-action">Name: {{ pacient.name }}</li>
-                <li class="list-group-item list-group-item-action">City: {{ pacient.city }}</li>
-                <li class="list-group-item list-group-item-action">Phone: {{ pacient.phone }}</li>
-              </ul>
+        <div class="row">  
+            <div class="container">         
+                <ul class="list-group pt-4">
+                    <li class="list-group-item list-group-item-action">Name: {{ pacient.name }}</li>
+                    <li class="list-group-item list-group-item-action">City: {{ pacient.city }}</li>
+                    <li class="list-group-item list-group-item-action">Phone: {{ pacient.phone }}</li>
+                </ul>
+              </div>
+              <div class="col-md-6" *ngFor="let res of result">
+
+                <h2>Consultation</h2>
+                <p class="text-danger" >Found: {{ res?.found }}</p>
+                <p class="text-info">Solution: {{ res?.solution }}</p>
+            </div>
         </div>
         <div class="row">
-            <h2>Doctor results</h2>
+            <h2>Results for pacient</h2>
             <form [formGroup]="resultsForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label>Found</label>
