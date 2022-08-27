@@ -12,6 +12,7 @@ import { InfoComponent } from './info/info.component';
 import { ConsultsComponent } from './consults/consults.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { CommentComponent } from './comment/comment.component';
+import { ResultsComponent } from './results/results.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'info/:id', component: InfoComponent },
   { path: 'consults/:id', component: ConsultsComponent },
   { path: 'reservation/:id', component: ReservationComponent },
+  { path: 'results/:id', component: ResultsComponent },
   { path: 'comments', component: CommentComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

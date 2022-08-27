@@ -7,26 +7,21 @@
                         <label>Specializare</label>
                         <select class="form-control" id="speciality" name="speciality" formControlName="speciality">
                             <option>-</option>
-                            <option>chirurgie</option>
-                            <option>orl</option>
+                            <option *ngFor="let speciality of specialities">{{speciality}}</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Hospital</label>
                         <select class="form-control" id="hospital"  name="hospital" formControlName="hospital">
                             <option>-</option>
-                            <option>Spitalul 1</option>
-                            <option>Spitalul 2</option>
+                            <option *ngFor="let hospital of hospitals">{{hospital}}</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>City</label>
                         <select class="form-control" id="city"  name="city" formControlName="city">
                             <option>-</option>
-                            <option>Bucharest</option>
-                            <option>Brasov</option>
-                            <option>Botosani</option>
-                            <option>Suceava</option>
+                            <option *ngFor="let city of cities">{{city}}</option>
                         </select>
                     </div>
                     <div class="form-group mt-3">
@@ -53,7 +48,7 @@
                         <td>{{ doctor.speciality }}</td>
                         <td><a routerLink="/info/{{ doctor._id }}">Info</a></td>
                         <td><a routerLink="/comment">Write Comment</a></td>
-                        <td><a routerLink="/reservation/{{ doctor._id }}">Schedule reservation</a></td>
+                        <td><a routerLink="/reservation/{{ doctor._userId }}">Schedule reservation</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -22,9 +22,9 @@ exports.store = async (req, res, next) => {
 
 
 exports.find = async (req, res, next) => {
-    const { speciality } = req.body;
+    const { speciality, city, hospital } = req.body;
     try {
-        const data = await Doctor.find({speciality: speciality});
+        const data = await Doctor.where({speciality: speciality, city: city, hospital: hospital}).exec();
 
         res.status(200).json({
             success: true,
@@ -58,8 +58,7 @@ exports.schedule = async (req, res, next) => {
         const doctorId = req.body.doctorId;
         const pacientId = req.body.pacientId;
         const pacient = Pacient.findById(pacientId);
-        console.log(pacient)
-        const data = await Schedule.create({date: date, time: time, doctorId: doctorId, pacient: pacient})
+        const data = await Schedule.create({date: date, time: time, doctorId: doctorId, pacientId: pacientId})
 
         res.status(200).json({
             success: true,

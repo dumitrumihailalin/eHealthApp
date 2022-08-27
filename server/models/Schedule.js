@@ -5,7 +5,7 @@ const ScheduleSchema = new mongoose.Schema({
     time: {
         type: String,
     },
-    pacient: {
+    pacientId: {
         type: String
     },
     doctorId: {

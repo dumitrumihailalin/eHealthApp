@@ -18,7 +18,8 @@ import { FindComponent } from './find/find.component';
 import { ConsultsComponent } from './consults/consults.component';
 import { CommentComponent } from './comment/comment.component';
 import { ReservationComponent } from './reservation/reservation.component';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { ResultsComponent } from './results/results.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { DatePipe } from '@angular/common'
     ConsultsComponent,
     CommentComponent,
     ReservationComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,

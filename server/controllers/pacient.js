@@ -22,13 +22,9 @@ exports.store = async (req, res, next) => {
 
 exports.list = async (req, res, next) => {
     try {
-        const doctorId = req.params.id
-        const data = await Schedule.find({doctorId: doctorId});
-        const pacients = new Array();
-        data.forEach(element => {
-            pacients.push(element.pacientId);
-        });
-        data.records = await Pacient.find({ '_userId': { $in: pacients } });
+        console.log(req.params.id)
+        const data = await Schedule.find({'doctorId': req.params.id});
+
         res.status(200).json({
             success: true,
             data: data
@@ -41,7 +37,7 @@ exports.list = async (req, res, next) => {
 exports.find = async (req, res, next) => {
 
     try {
-        const data = await Pacient.findOne({userId: req.params._id});
+        const data = await Pacient.findOne({_userId: req.params.id});
         res.status(200).json({
             success: true,
             data: data

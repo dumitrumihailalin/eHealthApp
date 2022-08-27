@@ -35,9 +35,6 @@ export class ReservationComponent implements OnInit {
   onSubmit() {
     this.reservationForm.value.doctorId = this.route.snapshot.paramMap.get('id');
     this.reservationForm.value.pacientId = this.accountService._userId();
-    
-    this.date = new Date();
-    this.reservationForm.value.date = this.datepipe.transform(this.reservationForm.value.date, 'yyyy-MM-dd');
     this.reservationService.schedule(this.reservationForm.value).subscribe(response => {
       this.reservationForm.reset();
     }, error => {
