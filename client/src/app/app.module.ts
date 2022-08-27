@@ -18,7 +18,7 @@ import { FindComponent } from './find/find.component';
 import { ConsultsComponent } from './consults/consults.component';
 import { CommentComponent } from './comment/comment.component';
 import { ReservationComponent } from './reservation/reservation.component';
-
+import { DatePipe } from '@angular/common'
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,7 @@ import { ReservationComponent } from './reservation/reservation.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const ScheduleSchema = new mongoose.Schema({
-    date: { type : Date, default: Date.now },
+    date: { type : String},
     time: {
-        type: string,
+        type: String,
     },
-    pacientId: {
+    pacient: {
         type: String
     },
     doctorId: {

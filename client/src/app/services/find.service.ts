@@ -15,4 +15,12 @@ export class FindService {
   doctor(doctor: any): Observable<Doctor> { 
      return this.httpClient.post<Doctor>(this.baseUrl + 'doctor/find', doctor);
   }
+
+  info(id: any) {
+    return this.httpClient.get(this.baseUrl + 'doctor/info/'+ id);
+  }
+
+  pacientInfo(id: any) {
+    return this.httpClient.get(this.baseUrl + 'pacient/find/'+ id);
+  }
 }

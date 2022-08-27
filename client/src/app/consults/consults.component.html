@@ -1,8 +1,9 @@
 <div class="col-md-6 mx-auto bg-info mt-3 p-3">
     <h2>consults</h2>
-    <ul class="list-group pt-4">
-        <li class="list-group-item  list-group-item-action list-group-item-info bg-info">Nume: Ion Constantin</li>
-        <li class="list-group-item list-group-item-action" >Prenume: Constantin</li>
-        <li class="list-group-item list-group-item-action" >Data nasterii: 08-02-1987</li>
-      </ul>
+    <div class="card" style="width: 18rem;" *ngFor="let pacient of pacients">
+      <div class="card-body">
+        <h5 class="card-title" routerLink="/info/{{ pacient.pacientId }}">View</h5>
+        <p class="card-text">{{ pacient.date }} {{pacient.time}}</p>
+      </div>
+    </div>
 </div>

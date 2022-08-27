@@ -5,8 +5,8 @@
    <div class="completed" *ngIf="isDoctor && accountService.isCompleted">
       <div class="col-md-6 mx-auto">
          <ul class="list-group pt-4">
-           <li class="list-group-item  list-group-item-action list-group-item-info bg-info" routerLink="/consults">Consults</li>
-           <li class="list-group-item list-group-item-action" routerLink="/pacient">Info</li>
+           <li class="list-group-item  list-group-item-action list-group-item-info bg-info" routerLink="/consults/{{accountService._userId()}}">Consults</li>
+           <li class="list-group-item list-group-item-action" routerLink="/doctor/{{accountService._userId()}}">Info</li>
          </ul>
        </div>
       </div>
@@ -17,8 +17,8 @@
       <div class="col-md-6 mx-auto">
       <ul class="list-group pt-4">
          <li class="list-group-item  list-group-item-action list-group-item-info bg-info" routerLink="/consults">Consults</li>
-         <li class="list-group-item list-group-item-action" routerLink="/pacient">Info</li>
-         <li class="list-group-item list-group-item-action" routerLink="/find">Find doctor</li>
+         <li class="list-group-item list-group-item-action" routerLink="/pacient/{{accountService._userId()}}">Info</li>
+         <li class="list-group-item list-group-item-action" routerLink="/find/{{accountService._userId()}}">Find doctor</li>
          <li class="list-group-item list-group-item-action" (click)="accountService.logout()">Logout</li>
       </ul>
       </div>

@@ -27,4 +27,12 @@ export class UserService {
       })
     )
   }
+
+  pacients() {
+    return this.httpClient.get(this.baseUrl + 'pacient/list').pipe(
+      map( (response: any) => {
+        return response   
+      })
+    )
+  }
 }

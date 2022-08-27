@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FindService } from '../services/find.service';
 
 @Component({
   selector: 'app-info',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
-  constructor() { }
+  pacient: any;
+
+  constructor(private findService: FindService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.findService.info(this.route.snapshot.paramMap.get('id')).subscribe( (response: any) => {
+      this.pacient = response.data
+    })
   }
 
 }

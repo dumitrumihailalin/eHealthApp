@@ -13,7 +13,7 @@
             <a class="nav-link text-dark" routerLink="/register">Register</a>
         </li>
         <li class="nav-item" *ngIf="accountService.isLoggedIn">
-          <a class="nav-link text-dark" (click)="logout()" class="btn btn-dark">Logout</a>
+          Esti autentificat ca {{ role }} <a class="nav-link text-dark" (click)="logout()" class="btn btn-dark">Logout</a>
         </li>
       </ul>
     </div>

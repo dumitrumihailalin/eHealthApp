@@ -17,10 +17,14 @@ export class AccountService {
     })
   }
 
-  pacient(model: any): void { 
-    this.httpClient.post(this.baseUrl + 'pacient', model).subscribe((result: any) => { 
+  store(model: any): void { 
+    this.httpClient.post(this.baseUrl + 'pacient/store', model).subscribe((result: any) => { 
       console.log(result)    
     })
+  }
+
+  pacientList(id: any) {
+    return this.httpClient.get(this.baseUrl + 'pacient/list/'+ id);
   }
 
   get isLoggedIn(): boolean {
@@ -30,18 +34,33 @@ export class AccountService {
 
   isDoctor() {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user.user.role === 'doctor' ? true : false;
+    if (!user) {
+      this.router.navigateByUrl('/login');
+      return false;
+    } else {
+      return user.user.role === 'doctor' ? true : false;
+    }
   }
 
   _userId() {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user.user._id; 
+    if (user) {
+      return user.user._id; 
+    } else {
+      return null;
+    }
   }
 
+  role() {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    if (user) {
+      return user.user.role;  
+    }
+  }
 
   isCompleted() {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user.user.completed !== false ? true : false;
+    return user.user.completed === false ? false : true;
   }
 
   logout() {
