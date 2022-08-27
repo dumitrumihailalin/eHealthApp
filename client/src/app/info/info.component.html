@@ -6,5 +6,21 @@
                 <li class="list-group-item list-group-item-action">Phone: {{ pacient.phone }}</li>
               </ul>
         </div>
+        <div class="row">
+            <h2>Doctor results</h2>
+            <form [formGroup]="resultsForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Found</label>
+                    <textarea id="found" class="form-control" name="found" formControlName="found"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Solutions</label>
+                    <textarea id="solution" class="form-control" name="solution" formControlName="solution"></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" [disabled]="!resultsForm.valid" class="btn btn-info">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
   

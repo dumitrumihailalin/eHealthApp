@@ -1,1 +1,17 @@
-<p>results works!</p>
+<div class="container">
+    <div class="row bg-info mt-5">
+        <div class="col-md-6">
+            <h2>Doctor</h2>
+            <ul class="list-group pt-4">
+                <li class="list-group-item  list-group-item-action list-group-item-info bg-info">Doctor name: {{ doctor.name }} </li>
+                <li class="list-group-item list-group-item-action" routerLink="/find">Speciality: {{ doctor.speciality }}</li>
+                <li class="list-group-item list-group-item-action" routerLink="/info">Hospital: {{ doctor.hospital }}</li>
+              </ul>            
+        </div>
+        <div class="col-md-6">
+            <h2>Results</h2>
+            <p class="text-danger">Found: {{ result[0]?.found }}</p>
+            <p class="text-white">Solution: {{ result[0]?.solution }}</p>
+        </div>
+    </div>
+</div>

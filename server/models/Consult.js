@@ -7,7 +7,10 @@ const ConsultSchema = new mongoose.Schema({
     doctorId: {
         type: String
     },
-    result: {
+    found: {
+        type: String
+    },
+    solution: {
         type: String
     }
 })

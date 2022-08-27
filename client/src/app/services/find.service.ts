@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Doctor } from '../models/Doctor';
+import { Pacient } from '../models/Pacient';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class FindService {
     return this.httpClient.get(this.baseUrl + 'doctor/info/'+ id);
   }
 
-  pacientInfo(id: any) {
-    return this.httpClient.get(this.baseUrl + 'pacient/find/'+ id);
+  pacientInfo(id: any): Observable<Pacient> {
+    return this.httpClient.get<Pacient>(this.baseUrl + 'pacient/find/'+ id);
   }
 }

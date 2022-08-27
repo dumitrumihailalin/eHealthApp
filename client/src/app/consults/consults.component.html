@@ -2,7 +2,7 @@
     <h2>consults</h2>
     <div class="card" style="width: 18rem;" *ngFor="let pacient of pacients">
       <div class="card-body">
-        <h5 class="card-title" routerLink="/pacient/{{ pacient.pacientId }}">View</h5>
+        <h5 class="card-title" routerLink="/info/{{ pacient.pacientId }}">View</h5>
         <p class="card-text">{{ pacient.date }} {{pacient.time}}</p>
       </div>
     </div>

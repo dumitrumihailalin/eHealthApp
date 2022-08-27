@@ -35,4 +35,19 @@ export class UserService {
       })
     )
   }
+
+  results(model: any) {
+    return this.httpClient.post(this.baseUrl + 'pacient/result', model).pipe(
+      map( (response: any) => {
+        return response   
+      })
+    )
+  }
+  show(id: any) {
+    return this.httpClient.get(this.baseUrl + 'pacient/show/'+ id).pipe(
+      map( (response: any) => {
+        return response   
+      })
+    )
+  }
 }
